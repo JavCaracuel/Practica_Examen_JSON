@@ -2,9 +2,9 @@ package org.example;
 
 public class Contacto {
 
-    String Nombre;
-    String Edad;
-    String Coche;
+   private String Nombre;
+    private String Edad;
+    private String Coche;
 
     public Contacto() {
     }
