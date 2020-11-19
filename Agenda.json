@@ -1,0 +1,20 @@
+{
+    "Agenda": [
+        {
+            "name": "Javier",
+            "age": 20,
+            "cars": "Focus"
+        },
+        {
+            "name": "Julio",
+            "age": 20,
+            "cars": "Ninguno"
+
+        },
+        {
+            "name": "Fer",
+            "age": 21,
+            "cars": "Mercedes"
+        }
+    ]
+}
