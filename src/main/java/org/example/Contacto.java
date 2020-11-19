@@ -3,13 +3,13 @@ package org.example;
 public class Contacto {
 
    private String Nombre;
-    private String Edad;
+    private long Edad;
     private String Coche;
 
     public Contacto() {
     }
 
-    public Contacto(String nombre, String edad, String coche) {
+    public Contacto(String nombre, long edad, String coche) {
         Nombre = nombre;
         Edad = edad;
         Coche = coche;
@@ -23,11 +23,11 @@ public class Contacto {
         Nombre = nombre;
     }
 
-    public String getEdad() {
+    public long getEdad() {
         return Edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(long edad) {
         Edad = edad;
     }
 

@@ -1,23 +1,20 @@
 package org.example;
 
 
-
-
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class App 
-{
+public class App {
 
-   public static ArrayList<Contacto> Agenda = new ArrayList<Contacto>();
+    public static ArrayList<Contacto> Agenda = new ArrayList<Contacto>();
 
 
-    public static void main( String[] args ){
+    public static void main(String[] args) {
 
         Leer_fichero();
 
@@ -34,23 +31,29 @@ public class App
 
             JSONObject jsonObject = (JSONObject) obj;
 
-            JSONArray Agenda = (JSONArray) jsonObject.get("Agenda");
+            //seleccionamos el objeto que queremos (En nuestro caso solo es 1 dado que solo tenemos 1 agenda)
+            JSONArray Agenda_JSON = (JSONArray) jsonObject.get("Agenda");
 
 
-            for(int i=0;i<Agenda.size();i++){
+            // debemos hacer esto si tenemos en el JSON un array que tiene diferentes valores dentro
+            Iterator<JSONObject> iterator = Agenda_JSON.iterator();
 
-                System.out.println(jsonObject);
-
-
+            while (iterator.hasNext()) {
+                Contacto Contacto_aux = new Contacto();
+                Contacto_aux.setNombre((String) iterator.next().get("name"));
+                Contacto_aux.setCoche((String) iterator.next().get("cars"));
+                Contacto_aux.setEdad((long) iterator.next().get("age"));
+                Agenda.add(Contacto_aux);
             }
 
-        }catch (Exception e){
+
+        } catch (Exception e) {
 
             e.printStackTrace();
 
         }
 
-            //Read JSON file
+        //Read JSON file
     }
 
 
