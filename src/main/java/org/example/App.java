@@ -3,21 +3,14 @@ package org.example;
 
 
 
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import java.io.FileReader;
-
-
-
-import com.sun.deploy.security.ruleset.RuleSetParser;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
 
@@ -37,7 +30,19 @@ public class App
         try {
 
 
-            Object obj = jsonParser.parse(new FileReader(".json"));
+            Object obj = jsonParser.parse(new FileReader("Agenda.json"));
+
+            JSONObject jsonObject = (JSONObject) obj;
+
+            JSONArray Agenda = (JSONArray) jsonObject.get("Agenda");
+
+
+            for(int i=0;i<Agenda.size();i++){
+
+                System.out.println(jsonObject);
+
+
+            }
 
         }catch (Exception e){
 
