@@ -6,6 +6,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -68,6 +70,43 @@ public class App {
         }
 
         //Read JSON file
+    }
+    public static void Escribir_JSON(){
+
+        JSONObject obj1 = new JSONObject();
+
+        JSONArray arraycoches = new JSONArray();
+        JSONObject obj2 = new JSONObject();
+        JSONObject obj3 = new JSONObject();
+        JSONObject obj4 = new JSONObject();
+
+        obj2.put("nombre","Fer");
+        obj2.put("edad", 21);
+        obj2.put("coche", "mercedes refachero");
+        arraycoches.add(obj2);
+        obj1.put("amigos", arraycoches);
+
+        obj3.put("nombre","Edu");
+        obj3.put("edad", 20);
+        obj3.put("coche", "none");
+        arraycoches.add(obj3);
+
+        obj4.put("nombre","javi");
+        obj4.put("edad", 20);
+        obj4.put("coche", "azul refachero");
+        arraycoches.add(obj4);
+        obj1.put("amigos", arraycoches);
+
+        // Write file
+        try(FileWriter file = new FileWriter("amigos.json")){
+            file.write(obj1.toJSONString());
+            file.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+
     }
 
 
