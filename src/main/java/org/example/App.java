@@ -17,12 +17,24 @@ public class App {
     public static void main(String[] args) {
 
         Leer_fichero();
+        for (int i = 0; i < Agenda.size(); i++) {
 
+            System.out.println(Agenda.get(i).getNombre());
+            System.out.println(Agenda.get(i).getCoche());
+            System.out.println(Agenda.get(i).getEdad());
+
+
+        }
     }
 
     public static void Leer_fichero() {
 
         JSONParser jsonParser = new JSONParser();
+
+        String Nombre_aux;
+        String Coche_aux;
+        long Edad_aux;
+
 
         try {
 
@@ -40,12 +52,14 @@ public class App {
 
             while (iterator.hasNext()) {
                 Contacto Contacto_aux = new Contacto();
-                Contacto_aux.setNombre((String) iterator.next().get("name"));
-                Contacto_aux.setCoche((String) iterator.next().get("cars"));
-                Contacto_aux.setEdad((long) iterator.next().get("age"));
+               JSONObject Objeto_aux= iterator.next();
+                Contacto_aux.setNombre((String) Objeto_aux.get("name"));
+                Contacto_aux.setCoche((String) Objeto_aux.get("cars"));
+                Contacto_aux.setEdad((long) Objeto_aux.get("age"));
                 Agenda.add(Contacto_aux);
             }
 
+     
 
         } catch (Exception e) {
 
